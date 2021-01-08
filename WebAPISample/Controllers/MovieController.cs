@@ -23,6 +23,7 @@ namespace WebAPISample.Controllers
         public IActionResult Get()
         {
             // Retrieve all movies from db logic
+
             return Ok(new string[] { "movie1 string", "movie2 string" });
         }
 
@@ -30,9 +31,10 @@ namespace WebAPISample.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
+            Movie movie = null;
             // Retrieve movie by id from db logic
             // return Ok(movie);
-            return Ok();
+            return Ok(movie);
         }
 
         // POST api/movie
