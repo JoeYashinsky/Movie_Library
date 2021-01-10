@@ -9,7 +9,7 @@ using WebAPISample.Models;
 
 namespace WebAPISample.Controllers
 
-{//test     //this is a test commit right now
+{
 
     [Route("api/[controller]")]
     [ApiController]
@@ -25,8 +25,9 @@ namespace WebAPISample.Controllers
         public IActionResult Get()
         {
             // Retrieve all movies from db logic
+            List<Movie> allMovies = _context.Movies.ToList();
 
-            return Ok(new string[] { "movie1 string", "movie2 string" });
+            return Ok(allMovies);
         }
 
         // GET api/movie/5
@@ -44,6 +45,8 @@ namespace WebAPISample.Controllers
         public IActionResult Post([FromBody]Movie value)
         {
             // Create movie in db logic
+            _context.Movies.Add(value);
+            _context.SaveChanges();
             return Ok();
         }
 
