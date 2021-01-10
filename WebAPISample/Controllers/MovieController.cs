@@ -8,12 +8,9 @@ using WebAPISample.Data;
 using WebAPISample.Models;
 
 namespace WebAPISample.Controllers
-<<<<<<< HEAD
+
 {//test     //this is a test commit right now
-=======
-{//test
- //testing continues
->>>>>>> a8784f2719fdc300a0d029ca11e64cdaf99f085c
+
     [Route("api/[controller]")]
     [ApiController]
     public class MovieController : ControllerBase
