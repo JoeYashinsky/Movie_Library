@@ -8,7 +8,8 @@ using WebAPISample.Data;
 using WebAPISample.Models;
 
 namespace WebAPISample.Controllers
-{//test     //this is a test commit right now
+
+{
 
     [Route("api/[controller]")]
     [ApiController]
@@ -24,8 +25,9 @@ namespace WebAPISample.Controllers
         public IActionResult Get()
         {
             // Retrieve all movies from db logic
+            List<Movie> allMovies = _context.Movies.ToList();
 
-            return Ok(new string[] { "movie1 string", "movie2 string" });
+            return Ok(allMovies);
         }
 
         // GET api/movie/5
@@ -33,16 +35,20 @@ namespace WebAPISample.Controllers
         public IActionResult Get(int id)
         {
             // Retrieve movie by id from db logic
+            var movie = _context.Movies.Where(m => m.MovieId == id);
+
             // return Ok(movie);
-            return Ok();
+            return Ok(movie);
         }
 
         // POST api/movie
         [HttpPost]
         public IActionResult Post([FromBody]Movie value)
         {
-            // Create movie in db logic
-            return Ok();
+            // Create new movie in db logic
+            _context.Movies.Add(value);
+            _context.SaveChanges();
+            return Ok(value);
         }
 
         // PUT api/movie
@@ -50,7 +56,9 @@ namespace WebAPISample.Controllers
         public IActionResult Put([FromBody] Movie movie)
         {
             // Update movie in db logic
-            return Ok();
+            _context.Movies.Update(movie);
+            _context.SaveChanges();
+            return Ok(movie);
         }
 
         // DELETE api/movie/5
@@ -58,6 +66,9 @@ namespace WebAPISample.Controllers
         public IActionResult Delete(int id)
         {
             // Delete movie from db logic
+            var deletedMovie = _context.Movies.Where(m => m.MovieId == id).FirstOrDefault();
+            _context.Movies.Remove(deletedMovie);
+            _context.SaveChanges();
             return Ok();
         }
     }
