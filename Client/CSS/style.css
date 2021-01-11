@@ -31,8 +31,11 @@ size: 20px;
 .btn-purple{
     color: #fff !important;
     background-color: #1d006e;
+}
 
-
+.btn-purple-light{
+    color: #fff !important;
+    background-color: #4604fd;
 }
 
 .jumbotron {

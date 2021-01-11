@@ -1,3 +1,16 @@
+$(function(){
+    $.get("https://localhost:44325/api/movie", function(data){
+        
+        //$('#response pre').html( JSON.stringify(data) );
+    data.map(element => {
+        $('#response pre').append(`<div><div>Title: ${element.title} Director: ${element.director} Genre: ${element.genre}</div></div`)
+    });
+    })
+})
+
+
+
+
 (function($){
     function processForm( e ){
         var dict = {
@@ -8,7 +21,7 @@
         $.ajax({
             url: 'https://localhost:44325/api/movie',
             dataType: 'json',
-            type: 'post',
+            type: 'get',
             contentType: 'application/json',
             data: JSON.stringify(dict),
             success: function( data, textStatus, jQxhr ){
