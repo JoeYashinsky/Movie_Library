@@ -99,7 +99,22 @@ function confirmDelete(currentMovie){
         e.preventDefault();
     }
 
-    $('#my-form').submit( processForm );
+    function DeleteMovie(deletedMovieId) {
+    $.ajax({
+        url: 'https://localhost:44325/api/movie',
+        dataType: 'json',
+        type: 'delete',
+        contentType: 'application/json',
+        data: JSON.stringify(dict),
+        success: function( data, textStatus, jQxhr ){
+            $('#response pre').html( data );
+        },
+        error: function( jqXhr, textStatus, errorThrown ){
+            console.log( errorThrown );
+        }
+    });
+} 
+        
 
     // $('.reserve-button').click(function(){
     //     $.put("https://localhost:44325/api/movie/" + currentMovieID, function(data){
