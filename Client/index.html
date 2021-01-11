@@ -140,7 +140,7 @@
                                 </ul>
                             </div>
                             <br>
-                            <form id="updateMovie"></form>
+                            <form id="updateMovie" action="updatemovie"></form>
                     </div>
                 </div>
             </div>
@@ -153,6 +153,13 @@
                         <h2>Delete Movie</h2>
                         <h4>Take down the movies who should have never been</h4>
                         <p>InterFlix stays up to date thanks to our great comunity. However, sometimes there are a few movies who should have never been made and end up in our library. This humble community has the power to take down movies to make this the best library of them all.</p>
+                        <div class="dropdown">
+                        <button class="btn btn-purple-light dropdown-toggle" type="button" data-toggle="dropdown">Pick Movie
+                            <span class="caret"></span></button>
+                            <ul class="dropdown-menu reserve-button" id="currentMoviesDelete">
+                                <!-- where dropdown options will display -->
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
