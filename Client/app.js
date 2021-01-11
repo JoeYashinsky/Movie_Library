@@ -8,20 +8,64 @@ $(function(){
     })
 })
 
+$(function(){
+    $.get("https://localhost:44325/api/movie", function(data){
+        
+        //$('#response pre').html( JSON.stringify(data) );
+    data.map(element => {
+        $('#currentMovies').append(`<li><a onClick="generateUpdateForm(${element.movieId})">${element.title}</a></li> `)
+    });
+    })
+})
+//<li><a href="#">HTML</a></li>
 
+function generateUpdateForm(currentMovieID){
+    
+    $.get("https://localhost:44325/api/movie/" + currentMovieID, function(data){
+
+    $('#updateMovie').append(`<div class="form-group">
+    <input type="text" class="form-control" id="title" name="title" value="${data.title}">
+</div>
+<div class="form-group">
+    <input type="text" class="form-control" id="director" name="director"
+        value="${data.director}">
+</div>
+<div class="form-group">
+    <input type="text" class="form-control" id="genre" name="genre" value="${data.genre}">
+</div>
+<button type="submit" class="btn btn-purple-light">Update</button>`)
+    })
+}
+
+function updateMovie(currentMovie){
+    $.ajax({
+        url: 'https://localhost:44325/api/movie',
+        dataType: 'json',
+        type: 'put',
+        contentType: 'application/json',
+        data: JSON.stringify(dict),
+        success: function( data, textStatus, jQxhr ){
+            $('#response pre').html( data );
+        },
+        error: function( jqXhr, textStatus, errorThrown ){
+            console.log( errorThrown );
+        }
+    });
+}
 
 
 (function($){
     function processForm( e ){
         var dict = {
         	Title : this["title"].value,
-        	Director: this["director"].value
+            Director: this["director"].value,
+            Genre: this["genre"].value
         };
 
         $.ajax({
             url: 'https://localhost:44325/api/movie',
             dataType: 'json',
-            type: 'get',
+            type: 'post',
             contentType: 'application/json',
             data: JSON.stringify(dict),
             success: function( data, textStatus, jQxhr ){
@@ -36,4 +80,14 @@ $(function(){
     }
 
     $('#my-form').submit( processForm );
+
+    // $('.reserve-button').click(function(){
+    //     $.put("https://localhost:44325/api/movie/" + currentMovieID, function(data){
+            
+    //     data.map(element => {
+    //         $('#currentMovies').append(`<li><a href="update/${element.movieID}">${element.title}</a></li> `)
+    //     });
+    //     })
+    // })
+
 })(jQuery);
