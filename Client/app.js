@@ -63,16 +63,30 @@ function updateMovie(currentMovie){
     });
 }
 
-function confirmDelete(currentMovie){
+function confirmDelete(currentMovieID){
     $.get("https://localhost:44325/api/movie/" + currentMovieID, function(data){
 
-    $('#updateMovie').append(`<div class="form-group">
-    <input type="text" class="form-control" id="title" name="title" value="${data.title}">
-</div>
-<button type="submit" class="btn btn-purple-light">Confirm</button>`)
+        $('#updateMovieDelete').append(`
+        <h4>Do you want to perminatly delete: <strong>${data.title}</strong></h4>
+        <button onClick="DeleteMovie(${data.movieId})" class="btn btn-purple-light">Confirm</button>`)
     })
 }
 
+function DeleteMovie(deletedMovieId) {
+    $.ajax({
+        url: 'https://localhost:44325/api/movie',
+        dataType: 'json',
+        type: 'delete',
+        contentType: 'application/json',
+        data: JSON.stringify(dict),
+        success: function( data, textStatus, jQxhr ){
+            $('#response pre').html( data );
+        },
+        error: function( jqXhr, textStatus, errorThrown ){
+            console.log( errorThrown );
+        }
+    });
+}
 
 (function($){
     function processForm( e ){
@@ -97,32 +111,6 @@ function confirmDelete(currentMovie){
         });
 
         e.preventDefault();
-    }
-
-    function DeleteMovie(deletedMovieId) {
-    $.ajax({
-        url: 'https://localhost:44325/api/movie',
-        dataType: 'json',
-        type: 'delete',
-        contentType: 'application/json',
-        data: JSON.stringify(dict),
-        success: function( data, textStatus, jQxhr ){
-            $('#response pre').html( data );
-        },
-        error: function( jqXhr, textStatus, errorThrown ){
-            console.log( errorThrown );
-        }
-    });
-} 
-        
-
-    // $('.reserve-button').click(function(){
-    //     $.put("https://localhost:44325/api/movie/" + currentMovieID, function(data){
-            
-    //     data.map(element => {
-    //         $('#currentMovies').append(`<li><a href="update/${element.movieID}">${element.title}</a></li> `)
-    //     });
-    //     })
-    // })
+    } 
 
 })(jQuery);
