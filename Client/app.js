@@ -148,3 +148,70 @@ function confirmDelete(currentMovieID) {
 
 })(jQuery);
 
+function searchByMovieDetails(movies) {
+    let movieSearch = prompt("Which movie detail would you like to search by? You can select title, director, or genre", chars);
+  
+    let searchResults;
+    switch (movieSearch) {
+      case "title":
+        searchResults = searchByTitle(movies);
+        break;
+      case "director":
+        searchResults = searchByDirector(movies);
+        break;
+      case "genre":
+        searchResults = searchByGenre(movies);
+        break;
+      default:
+        alert("Not a valid input");
+        searchByMovieDetails(movies);
+        break;
+    }
+    
+    return searchResults;
+  }
+
+  function searchByTitle(movies) {
+    let title = prompt("What is the name of the film?", chars).toLowerCase();
+  
+    let foundMovie = movies.filter(function (movie) {
+      if (movie.Title == title.toLowerCase()) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    });
+  
+    return foundMovie;
+  }
+
+  function searchByDirector(movie) {
+    let director = prompt("What is the director's name?", chars).toLowerCase();
+  
+    let foundDirector = movies.filter(function (movie) {
+      if (movie.Director === director.toLowerCase()) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    });
+  
+    return foundDirector;
+  }
+
+  function searchByGenre(movie) {
+    let genre = prompt("What is the film's genre?", chars).toLowerCase();
+  
+    let foundGenre = movies.filter(function (movie) {
+      if (movie.Genre === genre.toLowerCase()) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    });
+  
+    return foundGenre;
+  }
