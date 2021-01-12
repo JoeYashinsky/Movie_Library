@@ -2,18 +2,24 @@ $(function () {
     $.get("https://localhost:44325/api/movie", function (data) {
 
         data.map(element => {
-            $('#response pre').append(`<div><div>Title: ${element.title} Director: ${element.director} Genre: ${element.genre}</div></div`)
-        });
-        data.map(element => {
             $('#currentMovies').append(`<li><a onClick="generateUpdateForm(${element.movieId})">${element.title}</a></li> `)
         });
         data.map(element => {
             $('#currentMoviesDelete').append(`<li><a onClick="confirmDelete(${element.movieId})">${element.title}</a></li> `)
         });
+        data.map(element => {
+            $('#libraryTable').append(`
+            <tr>
+                <th scope="row">${element.title}</th>
+                <td>${element.director}</td>
+                <td>${element.genre}</td>
+            </tr>`)
+        });
     })
 
 })
 
+//Sets up the user input for a movie update
 function generateUpdateForm(currentMovieID) {
     $.get("https://localhost:44325/api/movie/" + currentMovieID, function (data) {
 
@@ -32,6 +38,7 @@ function generateUpdateForm(currentMovieID) {
     })
 }
 
+//Put request to update a movie
 (function () {
     function update_Movie(currentMovie) {
         var dict = {
@@ -65,6 +72,7 @@ function generateUpdateForm(currentMovieID) {
     $('#updateMovie').submit(update_Movie);
 })(jQuery);
 
+//Sets up the delete confirmation message
 function confirmDelete(currentMovieID) {
     $.get("https://localhost:44325/api/movie/" + currentMovieID, function (data) {
 
@@ -78,6 +86,7 @@ function confirmDelete(currentMovieID) {
     })
 }
 
+//Delete request to remove a movie
 (function ($) {
     function delete_Movie(deletedMovieId) {
         $.ajax({
@@ -93,6 +102,10 @@ function confirmDelete(currentMovieID) {
             },
             error: function (jqXhr, textStatus, errorThrown) {
                 console.log(errorThrown);
+                $('#deleteMovie').html(`<br>
+                <div class="alert alert-purple" role="alert">
+                <strong>Movie Deleted!</strong> However, it didn't go down without a fight. Check the console.log for a message.
+                </div>`);
             }
         });
     }
@@ -103,7 +116,7 @@ function confirmDelete(currentMovieID) {
     $('#deleteMovie').submit(delete_Movie);
 })(jQuery);
 
-
+//Post request to add a new movie
 (function ($) {
     function processForm(e) {
         var dict = {
