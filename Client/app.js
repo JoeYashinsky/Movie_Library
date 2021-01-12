@@ -5,6 +5,7 @@ $(function(){
         $('#response pre').append(`<div><div>Title: ${element.title} Director: ${element.director} Genre: ${element.genre}</div></div`)
     });
     })
+
 })
 
 $(function(){
@@ -30,7 +31,7 @@ function generateUpdateForm(currentMovieID){
     $.get("https://localhost:44325/api/movie/" + currentMovieID, function(data){
 
     $('#updateMovie').append(`<div class="form-group">
-    <input type="number" class="form-control" id="movieID" name="movieId" value="${data.movieId}">
+    <input type="hidden" class="form-control" id="movieID" name="movieId" value="${data.movieId}">
 
     <input type="text" class="form-control" id="title" name="title" value="${data.title}">
 </div>
@@ -48,7 +49,7 @@ function generateUpdateForm(currentMovieID){
 (function(){
     function update_Movie(currentMovie){
         var dict = {
-            MovieId : this["movieId"].value,
+            MovieId : parseInt(this["movieId"].value),
         	Title : this["title"].value,
             Director: this["director"].value,
             Genre: this["genre"].value
@@ -61,7 +62,7 @@ function generateUpdateForm(currentMovieID){
             dataType: 'json',
             type: 'put',
             contentType: 'application/json',
-            data: JSON.dict,
+            data: JSON.stringify(dict),
             success: function (data, textStatus, jQxhr) {
                 $('#updateMovie').html(`<br>
                 <div class="alert alert-purple" role="alert">
