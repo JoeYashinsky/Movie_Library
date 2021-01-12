@@ -103,7 +103,10 @@ function DeleteMovie(deletedMovieId) {
             contentType: 'application/json',
             data: JSON.stringify(dict),
             success: function( data, textStatus, jQxhr ){
-                $('#response pre').html( data );
+                $('#successAdd').html(`<br>
+                    <div class="alert alert-purple" role="alert">
+                        Thanks for adding ${data.title} to the best list of movies on this side of the Mississippi!
+                    </div>`);
             },
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
@@ -113,4 +116,7 @@ function DeleteMovie(deletedMovieId) {
         e.preventDefault();
     } 
 
+    $('#addMovie').submit(processForm);
+
 })(jQuery);
+

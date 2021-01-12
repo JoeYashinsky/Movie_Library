@@ -66,6 +66,11 @@ size: 20px;
     }
 }
 
+.alert-purple{
+    background-color: #4604fd2f;
+
+}
+
 .thumbnail {
   padding: 0 0 15px 0;
   border: none;

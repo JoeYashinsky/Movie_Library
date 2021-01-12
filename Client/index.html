@@ -24,7 +24,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">LOGO</a>
+                    <a class="navbar-brand" href="#">InterFlix</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
@@ -98,7 +98,7 @@
                         <p>Films come to life through the imagination of views and that is what we are, views just like
                             you.
                             IntraFilx is the largest growing movie library in the state of mind we live in.</p>
-                        <form id="my-form" class="form-inline" action="">
+                        <form id="addMovie" class="form-inline">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="title" name="title" placeholder="Title">
                             </div>
@@ -112,10 +112,7 @@
                             <button type="submit" class="btn btn-purple-light">ADD</button>
                         </form>
                     </div>
-
-                    <div class="alert alert-info" role="alert">
-                        Thanks for added to the best list of movies on this side of the Missippi!
-                    </div>
+                    <form id="successAdd"></form>
                 </div>
                 <div class="col-sm-4">
                     <span class="glyphicon glyphicon-camera logo"></span>
@@ -136,11 +133,11 @@
                                 <button class="btn btn-purple-light dropdown-toggle" type="button" data-toggle="dropdown">Pick Movie
                                 <span class="caret"></span></button>
                                 <ul class="dropdown-menu reserve-button" id="currentMovies">
-                                    <!-- where dropdown options will display -->
+                                    <!-- Where dropdown options will display -->
                                 </ul>
                             </div>
                             <br>
-                            <form id="updateMovie" action="updatemovie"></form>
+                            <form id="updateMovie" action="updatemovie"><!-- Where input boxes are display to update selected movie --></form>
                     </div>
                 </div>
             </div>
@@ -157,11 +154,10 @@
                         <button class="btn btn-purple-light dropdown-toggle" type="button" data-toggle="dropdown">Pick Movie
                             <span class="caret"></span></button>
                             <ul class="dropdown-menu reserve-button" id="currentMoviesDelete">
-                                <!-- where dropdown options will display -->
+                                <!-- Where dropdown options will display -->
                             </ul>
                             <br>
-                            <form id="updateMovieDelete"></form>
-
+                            <form id="updateMovieDelete"><!-- where selected movie is display to confirm delete--></form>
                         </div>
                     </div>
                 </div>
@@ -179,21 +175,21 @@
                     <div class="thumbnail">
                         <img src="\Images\Inception.jpg" alt="Paris">
                         <p><strong>Inception</strong></p>
-                        <p>Yes, we built Paris</p>
+                        <p>A dream in a dream</p>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="thumbnail">
                         <img src="\Images\Pineapple.jpg" alt="New York">
                         <p><strong>Pineapple Express</strong></p>
-                        <p>We built New York</p>
+                        <p>Don't underestimate us</p>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="thumbnail">
                         <img src="\Images\Dark_Knight.jpg" alt="San Francisco">
                         <p><strong>Dark Knight</strong></p>
-                        <p>Yes, San Fran is ours</p>
+                        <p>I'm Batman</p>
                     </div>
                 </div>
             </div>
