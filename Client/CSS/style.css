@@ -22,10 +22,13 @@
     border-color: transparent;
     color: #f6f6f6 !important;
 }
+.navbar-brand img{
+    width: 30px;
+}
 
 .iconNav{
-tab-size: 20px;
-size: 20px;
+    tab-size: 20px;
+    size: 20px;
 }
 
 .btn-purple{
@@ -41,13 +44,12 @@ size: 20px;
 .jumbotron {
     background-color: #7c38df; /* purple */
     color: #f6f6f6;
-    padding: 100px 25px;
+    padding: 80px 25px;
 
 }
 
-.logoimg{
-    width: 20px;
-    height: 30px;
+.jumbotron img{
+    width: 40%;
     margin-bottom: 10px;
 }
 

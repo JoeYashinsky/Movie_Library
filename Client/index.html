@@ -24,7 +24,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">InterFlix</a>
+                    <a class="navbar-brand"><img src="\Images\interflix2.jpeg"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
@@ -39,15 +39,8 @@
             </div>
         </nav>
         <div class="jumbotron text-center">
-            <img src="\Images\interflix.jpg" class="logoimg">
-            <!-- <h1>InterFlix</h1> -->
+            <img src="\Images\interflix1.jpeg">
             <p>Movie Library of Your Dreams</p>
-            <!-- <form class="form-inline">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="searchedMovie" name="searchedMovie" placeholder="Title, Director or Genre">
-                </div>
-                <button type="submit" class="btn btn-purple">Submit</button>
-            </form> -->
         </div>
 
         <div class="container-fluid text-center">
@@ -55,29 +48,35 @@
             <br>
             <form class="form-inline" id="ByTitle">
                 <div class="col-sm-4">
+                    <h4>Title</h4>
+                    <hr>
                     <div class="form-group">
                         <input type="text" class="form-control" id="title" name="title" placeholder="Title">
                     </div>
-                    <button type="submit" class="btn btn-purple">Submit</button>
+                    <br><br><button type="submit" class="btn btn-purple-light">Submit</button>
                 </div>
             </form>
             <form class="form-inline" id="ByDire">
                 <div class="col-sm-4">
+                    <h4>Director</h4>
+                    <hr>
                     <div class="form-group">
                         <input type="text" class="form-control" id="director" name="director" placeholder="Director">
                     </div>
-                    <button type="submit" class="btn btn-purple">Submit</button>
+                    <br><br><button type="submit" class="btn btn-purple-light">Submit</button>
                 </div>
             </form>
             <form class="form-inline" id="ByGenre">
                 <div class="col-sm-4">
+                    <h4>Genre</h4>
+                    <hr>
                     <div class="form-group">
                         <input type="text" class="form-control" id="genre" name="genre" placeholder="Genre">
                     </div>
-                    <button type="submit" class="btn btn-purple">Submit</button>
+                    <br><br><button type="submit" class="btn btn-purple-light">Submit</button>
                 </div>
             </form>
-            <div class="col-sm-12" id="searchResults"></div>
+            <div class="col-sm-12" id="searchResults"><!-- where searched movie results display --></div>
         </div>
 
         <div class="container-fluid">
@@ -114,9 +113,8 @@
                 <div class="col-sm-8">
                     <h2>About InterFlix</h2>
                     <h4>Movies are more than entertainment</h4>
-                    <p>Films come to life through the imagination of views and that is what we are, viewers just like you.
-                        InterFilx is the largest growing movie library in the state of mind we live in.</p>
-                    <!-- <button class="btn btn-default btn-lg">Get in Touch</button> -->
+                    <p>Movies come to life through the imagination of viewer and that is what we are, viewers just like you.
+                        InterFilx is the largest growing movie library in our corner of the web.</p>
                 </div>
                 <div class="col-sm-4">
                     <span class="glyphicon glyphicon-play logo"></span>
@@ -149,9 +147,7 @@
                     <div>
                         <h2>Add Movie</h2>
                         <h4>Add to our great movie library!</h4>
-                        <p>Films come to life through the imagination of views and that is what we are, views just like
-                            you.
-                            IntraFilx is the largest growing movie library in the state of mind we live in.</p>
+                        <p>One of the greatest things about Movies is that there are new release all the time. Add your new favorate movie to our library. If it's garbage, someone will remove it soon enough.</p>
                         <form id="addMovie" class="form-inline">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
@@ -169,7 +165,7 @@
                     <form id="successAdd"></form>
                 </div>
                 <div class="col-sm-4">
-                    <span class="glyphicon glyphicon-camera logo"></span>
+                    <span class="glyphicon glyphicon-facetime-video logo"></span>
                 </div>
             </div>
         </div>
@@ -182,7 +178,8 @@
                     </div>
                     <div class="col-sm-8">
                         <h2>Update Movie</h2>
-                        <h4><strong>MISSION:</strong> Bringing movie inspiration to all who wonder and seek the boredom fiting power of the cinema.</h4>
+                        <h4>Don't keep our movies in the past</h4>
+                        <p>The wonderful and dramatic world of the movies is where we come together as a family, freinds and enthusiests. Help us keep those movies up-to-date and make new memories.</p>
                             <div class="dropdown">
                                 <button class="btn btn-purple-light dropdown-toggle" type="button" data-toggle="dropdown">Pick Movie
                                 <span class="caret"></span></button>
@@ -211,7 +208,7 @@
                                 <!-- Where dropdown options will display -->
                             </ul>
                             <br>
-                            <form id="deleteMovie"><!-- where selected movie is display to confirm delete--></form>
+                            <form id="deleteMovie"><!-- where selected movie is display to confirm delete --></form>
                         </div>
                     </div>
                 </div>
@@ -222,9 +219,8 @@
         </div>
 
         <div class="container-fluid text-center bg-grey" id="fullLibrary">
-            <h2>Library</h2>
+            <h2>InterFlix Library</h2>
             <br>
-            <!-- <pre>list of movies</pre> -->
             <table class="table table-striped table-hover text-justify">
                 <thead class="thead-purple">
                     <tr>
@@ -234,6 +230,7 @@
                     </tr>
                 </thead>
                 <tbody id="libraryTable">
+                    <!-- where all current movies display -->
                 </tbody>
             </table>
         </div>
