@@ -147,70 +147,131 @@ function confirmDelete(currentMovieID) {
 
 })(jQuery);
 
-function searchByMovieDetails(movies) {
-    let movieSearch = prompt("Which movie detail would you like to search by? You can select title, director, or genre", chars);
-  
-    let searchResults;
-    switch (movieSearch) {
-      case "title":
-        searchResults = searchByTitle(movies);
-        break;
-      case "director":
-        searchResults = searchByDirector(movies);
-        break;
-      case "genre":
-        searchResults = searchByGenre(movies);
-        break;
-      default:
-        alert("Not a valid input");
-        searchByMovieDetails(movies);
-        break;
+//Finds the results for a title search
+(function ($) {
+    function searchByTitle(movies) {
+
+        let doc = this["title"].value;
+
+        $.get("https://localhost:44325/api/movie", function (data) {
+
+            let foundMovies = data.filter(m => m.title.toLowerCase().includes(doc.toLowerCase()));
+
+            $('#searchResults').html(`<br>
+      <table class="table table-striped table-hover text-justify">
+          <thead class="thead-purple">
+              <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Director</th>
+                  <th scope="col">Genre</th>
+              </tr>
+          </thead>
+          <tbody id="libraryTable">
+          </tbody>
+          </table>`)
+
+            foundMovies.map(element => {
+                $('#libraryTable').append(`
+            <tr>
+                <td><strong>${element.title}</strong></td>
+                <td>${element.director}</td>
+                <td>${element.genre}</td>
+            </tr>`)
+            });
+        })
     }
-    
-    return searchResults;
-  }
 
-  function searchByTitle(movies) {
-    let title = prompt("What is the name of the film?", chars).toLowerCase();
-  
-    let foundMovie = movies.filter(function (movie) {
-      if (movie.Title == title.toLowerCase()) {
-        return true;
-      }
-      else {
-        return false;
-      }
+    $('#ByTitle').on('submit', function (e) {
+    e.preventDefault();
     });
-  
-    return foundMovie;
-  }
 
-  function searchByDirector(movie) {
-    let director = prompt("What is the director's name?", chars).toLowerCase();
-  
-    let foundDirector = movies.filter(function (movie) {
-      if (movie.Director === director.toLowerCase()) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    });
-  
-    return foundDirector;
-  }
+    $('#ByTitle').submit(searchByTitle);
 
-  function searchByGenre(movie) {
-    let genre = prompt("What is the film's genre?", chars).toLowerCase();
-  
-    let foundGenre = movies.filter(function (movie) {
-      if (movie.Genre === genre.toLowerCase()) {
-        return true;
-      }
-      else {
-        return false;
-      }
+})(jQuery);
+
+//Finds the results for a dirctor search
+(function ($) {
+    function searchByDirector(movies) {
+
+        let doc = this["director"].value;
+
+        $.get("https://localhost:44325/api/movie", function (data) {
+
+            let foundMovies = data.filter(m => m.director.toLowerCase().includes(doc.toLowerCase()));
+
+            $('#searchResults').html(`<br>
+      <table class="table table-striped table-hover text-justify">
+          <thead class="thead-purple">
+              <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Director</th>
+                  <th scope="col">Genre</th>
+              </tr>
+          </thead>
+          <tbody id="libraryTable">
+          </tbody>
+          </table>`)
+
+            foundMovies.map(element => {
+                $('#libraryTable').append(`
+            <tr>
+                <td><strong>${element.title}</strong></td>
+                <td>${element.director}</td>
+                <td>${element.genre}</td>
+            </tr>`)
+            });
+        })
+    }
+
+    $('#ByDire').on('submit', function (e) {
+    e.preventDefault();
     });
-  
-    return foundGenre;
-  }
+
+    $('#ByDire').submit(searchByDirector);
+
+})(jQuery);
+
+
+//Finds the results for a genre search
+(function ($) {
+    function searchByGenre(movies) {
+
+        let doc = this["genre"].value;
+
+        $.get("https://localhost:44325/api/movie", function (data) {
+
+            let foundMovies = data.filter(m => m.genre.toLowerCase().includes(doc.toLowerCase()));
+
+            $('#searchResults').html(`
+            <br>
+      <table class="table table-striped table-hover text-justify">
+          <thead class="thead-purple">
+              <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Director</th>
+                  <th scope="col">Genre</th>
+              </tr>
+          </thead>
+          <tbody id="libraryTable">
+          </tbody>
+          </table>`)
+
+            foundMovies.map(element => {
+                $('#libraryTable').append(`
+            <tr>
+                <td><strong>${element.title}</strong></td>
+                <td>${element.director}</td>
+                <td>${element.genre}</td>
+            </tr>`)
+            });
+        })
+    }
+
+    $('#ByGenre').on('submit', function (e) {
+    e.preventDefault();
+    });
+
+    $('#ByGenre').submit(searchByGenre);
+
+})(jQuery);
+

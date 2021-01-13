@@ -39,14 +39,45 @@
             </div>
         </nav>
         <div class="jumbotron text-center">
-            <h1>InterFlix</h1>
+            <img src="\Images\interflix.jpg" class="logoimg">
+            <!-- <h1>InterFlix</h1> -->
             <p>Movie Library of Your Dreams</p>
-            <form class="form-inline">
+            <!-- <form class="form-inline">
                 <div class="form-group">
                     <input type="text" class="form-control" id="searchedMovie" name="searchedMovie" placeholder="Title, Director or Genre">
                 </div>
                 <button type="submit" class="btn btn-purple">Submit</button>
+            </form> -->
+        </div>
+
+        <div class="container-fluid text-center">
+            <h2>SEARCH BY</h2>
+            <br>
+            <form class="form-inline" id="ByTitle">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                    </div>
+                    <button type="submit" class="btn btn-purple">Submit</button>
+                </div>
             </form>
+            <form class="form-inline" id="ByDire">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="director" name="director" placeholder="Director">
+                    </div>
+                    <button type="submit" class="btn btn-purple">Submit</button>
+                </div>
+            </form>
+            <form class="form-inline" id="ByGenre">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="genre" name="genre" placeholder="Genre">
+                    </div>
+                    <button type="submit" class="btn btn-purple">Submit</button>
+                </div>
+            </form>
+            <div class="col-sm-12" id="searchResults"></div>
         </div>
 
         <div class="container-fluid">
