@@ -1,6 +1,6 @@
 .navbar {
     margin-bottom: 0;
-    background-color: #4604fd;
+    background-color: #7c38df;
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -10,17 +10,17 @@
 }
   
 .navbar li a, .navbar .navbar-brand {
-    color: #fff !important;
+    color: #f6f6f6 !important;
 }
   
 .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: #4604fd !important;
-    background-color: #fff !important;
+    color: #7c38df !important;
+    background-color: #f6f6f6 !important;
 }
   
 .navbar-default .navbar-toggle {
     border-color: transparent;
-    color: #fff !important;
+    color: #f6f6f6 !important;
 }
 
 .iconNav{
@@ -29,18 +29,18 @@ size: 20px;
 }
 
 .btn-purple{
-    color: #fff !important;
-    background-color: #1d006e;
+    color: #f6f6f6 !important;
+    background-color: #482183;
 }
 
 .btn-purple-light{
-    color: #fff !important;
-    background-color: #4604fd;
+    color: #f6f6f6 !important;
+    background-color: #7c38df;
 }
 
 .jumbotron {
-    background-color: #4604fd; /* purple */
-    color: #ffffff;
+    background-color: #7c38df; /* purple */
+    color: #f6f6f6;
     padding: 100px 25px;
 
 }
@@ -54,7 +54,7 @@ size: 20px;
 }
 
 .logo {
-    color: #4604fd;
+    color: #7c38df;
     font-size: 200px;
   
 }
@@ -67,7 +67,7 @@ size: 20px;
 }
 
 .alert-purple{
-    background-color: #4604fd2f;
+    background-color: #7b38df31;
 
 }
 
@@ -84,17 +84,17 @@ size: 20px;
 }
 
 .thead-purple{
-    background-color: #4604fd;
+    background-color: #7c38df;
     color: #f6f6f6
 
 }
 
 .table{
-    background-color: #4604fd0c;
+    background-color: #7b38df13;
 }
 
 footer .glyphicon {
     font-size: 20px;
     margin-bottom: 20px;
-    color: #4604fd;
+    color: #7c38df;
   }

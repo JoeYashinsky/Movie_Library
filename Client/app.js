@@ -10,13 +10,12 @@ $(function () {
         data.map(element => {
             $('#libraryTable').append(`
             <tr>
-                <th scope="row">${element.title}</th>
+                <td><strong>${element.title}</strong></td>
                 <td>${element.director}</td>
                 <td>${element.genre}</td>
             </tr>`)
         });
     })
-
 })
 
 //Sets up the user input for a movie update
@@ -58,7 +57,7 @@ function generateUpdateForm(currentMovieID) {
                 $('#updateMovie').html(`<br>
                 <div class="alert alert-purple" role="alert">
                     Thanks for updating ${data.title} to the best list of movies on this side of the Mississippi!
-                </div>`);
+                </div>`).delay(3000).fadeOut();
             },
             error: function (jqXhr, textStatus, errorThrown) {
                 console.log(errorThrown);
@@ -98,14 +97,14 @@ function confirmDelete(currentMovieID) {
                 $('#deleteMovie').html(`<br>
                     <div class="alert alert-purple" role="alert">
                         Thanks for deleting ${data.title} movie!
-                    </div>`);
+                    </div>`).delay(3000).fadeOut();
             },
             error: function (jqXhr, textStatus, errorThrown) {
                 console.log(errorThrown);
                 $('#deleteMovie').html(`<br>
                 <div class="alert alert-purple" role="alert">
                 <strong>Movie Deleted!</strong> However, it didn't go down without a fight. Check the console.log for a message.
-                </div>`);
+                </div>`).delay(5000).fadeOut();
             }
         });
     }
@@ -135,7 +134,7 @@ function confirmDelete(currentMovieID) {
                 $('#successAdd').html(`<br>
                     <div class="alert alert-purple" role="alert">
                         Thanks for adding ${data.title} to the best list of movies on this side of the Mississippi!
-                    </div>`);
+                    </div>`).delay(3000).fadeOut();
             },
             error: function (jqXhr, textStatus, errorThrown) {
                 console.log(errorThrown);
